@@ -58,7 +58,7 @@ code {
   font-weight: bold;
 }
 
-.tweets {
+#tweets {
   position: relative;
   left: 30%;
   top:  -7em;

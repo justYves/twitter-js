@@ -8,6 +8,10 @@ var add = function (name, text) {
   id++;
 };
 
+var getId = function(){
+	return id+"";
+}
+
 var list = function () {
   return _.clone(data);
 };
@@ -16,7 +20,7 @@ var find = function (properties) {
   return _.where(data, properties);
 };
 
-module.exports = { add: add, list: list, find: find };
+module.exports = { add: add, list: list, find: find, getId: getId };
 
 var randArrayEl = function(arr) {
   return arr[Math.floor(Math.random() * arr.length)];

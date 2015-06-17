@@ -4,9 +4,20 @@ var express = require("express");
 var app = express();
 var morgan = require("morgan");
 var swig = require("swig");
+var bodyParser = require('body-parser');
+
+var socketio = require('socket.io');
 
 var routes = require('./routes/');
-app.use('/', routes);
+
+var server = app.listen(3000,function(){
+	console.log("server listening upon connection");
+});
+
+var io = socketio.listen(server);
+console.log(io);
+app.use(bodyParser.urlencoded());
+app.use('/', routes(io));
 
 app.use(express.static(__dirname + '/public'));
 
@@ -17,9 +28,8 @@ app.engine("html", swig.renderFile)
 
 
 
-app.listen(3000,function(){
-	console.log("server listening upon connection");
-});
+
+
 
 app.set("views",__dirname + "/views")
 app.set("view engine","html")
