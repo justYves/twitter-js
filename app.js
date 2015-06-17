@@ -11,4 +11,8 @@ app.listen(3000,function(){
 app.get("/",function(request,response){
 	response.status(200).send("Hello World!");
 })
+
+app.get("/news",function(request,response){
+	response.status(200).send("This is the news page!");
+})
 // app.send();
