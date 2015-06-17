@@ -1,9 +1,11 @@
 var _ = require('underscore');
 
 var data = [];
+var id = 0;
 
 var add = function (name, text) {
-  data.push({ name: name, text: text });
+  data.push({ name: name, text: text, id: id+""});
+  id++;
 };
 
 var list = function () {
@@ -35,6 +37,7 @@ for(var i=0; i<10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
 
-// module.exports.add("Yves","short");
-// module.exports.add("Isaac","short");
+module.exports.add("Yves Yuen","short");
+module.exports.add("Yves Yuen","long");
+module.exports.add("Isaac","short");
 // console.log(find({text : "short"}));
