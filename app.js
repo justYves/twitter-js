@@ -5,6 +5,11 @@ var app = express();
 var morgan = require("morgan");
 var swig = require("swig");
 
+var routes = require('./routes/');
+app.use('/', routes);
+
+app.use(express.static(__dirname + '/public'));
+
 swig.setDefaults({ cache: false });
 
 app.use(morgan("dev"));
@@ -23,9 +28,9 @@ app.set("view engine","html")
 var people = [{name: 'Full'}, {name: 'Stacker'}, {name: 'Son'}];
 
 
-app.get("/",function(request,response){
-	response.render("index", {title: 'Hall of Fame', people: people});
-})
+// app.get("/",function(request,response){
+// 	response.render("index", {title: 'Hall of Fame', people: people});
+// })
 
 // app.get("/",function(request,response){
 // 	response.status(200).send("Hello World!");
